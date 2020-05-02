@@ -1,0 +1,2 @@
+le scénario doit avoir un fichier (meme vide) dans ce répertoire pour être autorisé
+cron peut par exemple créer/supprimer le fichier à certaines heures pour interdire une opération 
