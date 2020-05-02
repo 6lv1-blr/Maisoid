@@ -1,0 +1,163 @@
+object FrameGraphiques3D: TFrameGraphiques3D
+  Size.Width = 446.000000000000000000
+  Size.Height = 615.000000000000000000
+  Size.PlatformDefault = False
+  object ToolBar1: TToolBar
+    Align = Bottom
+    Position.Y = 575.000000000000000000
+    Size.Width = 446.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object btnRefreshData: TButton
+      Align = Left
+      Position.X = 94.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'refreshtoolbutton'
+      TabOrder = 0
+      Text = 'btnRefreshData'
+    end
+    object btnGoToMemo: TButton
+      Align = Right
+      Position.X = 393.000000000000000000
+      Size.Width = 53.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'arrowrighttoolbutton'
+      TabOrder = 3
+      Text = 'btnGoToMemo'
+    end
+    object btnSwitchGraph: TButton
+      Align = Left
+      Size.Width = 47.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'arrowlefttoolbuttonbordered'
+      TabOrder = 2
+      Text = 'btnSwitchGraph'
+    end
+    object btnGoBackPlan: TButton
+      Align = Left
+      Position.X = 47.000000000000000000
+      Size.Width = 47.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'infotoolbutton'
+      TabOrder = 1
+      Text = 'btnSwitchGraph'
+    end
+  end
+  object ChartDown: TChart
+    BottomWall.Color = xFF7B7B7B
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    MarginBottom = 0
+    MarginLeft = 0
+    MarginRight = 0
+    MarginTop = 0
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Puissance moyenne sur 2 jours')
+    SeriesGroups = <
+      item
+        Name = 'essai'
+      end>
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Color = claWhite
+    Zoom.Pen.Mode = pmNotXor
+    Zoom.Pen.Fill.Color = claWhite
+    Align = Client
+    TabOrder = 2
+    Size.Width = 446.000000000000000000
+    Size.Height = 318.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object BarSeries1: TFastLineSeries
+      Legend.Visible = False
+      Marks.Margins.Left = 0
+      Marks.Margins.Top = -1
+      Marks.Margins.Right = 0
+      Marks.Margins.Bottom = 0
+      Marks.Margins.Units = maPixels
+      ShowInLegend = False
+      Title = 'Puissance'
+      LinePen.Color = xFF4466A3
+      LinePen.Fill.Color = xFF4466A3
+      XValues.DateTime = True
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object ChartUp: TChart
+    BottomWall.Color = xFF7B7B7B
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    LeftWall.Color = xFFD4C8F8
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    MarginBottom = 0
+    MarginLeft = 0
+    MarginRight = 0
+    MarginTop = 0
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Consommation par jour en kWh')
+    SeriesGroups = <
+      item
+        Name = 'essai'
+      end>
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Color = claWhite
+    Zoom.Pen.Mode = pmNotXor
+    Zoom.Pen.Fill.Color = claWhite
+    Align = Top
+    TabOrder = 1
+    Size.Width = 446.000000000000000000
+    Size.Height = 257.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 19
+    object Series1: TBarSeries
+      Legend.Visible = False
+      BarBrush.BackColor = x00FFFFFF
+      Marks.Margins.Left = 0
+      Marks.Margins.Top = -1
+      Marks.Margins.Right = 0
+      Marks.Margins.Bottom = 0
+      Marks.Margins.Units = maPixels
+      Marks.Style = smsValue
+      Marks.Angle = 90
+      Marks.Callout.Length = 8
+      ShowInLegend = False
+      Title = 'ConsoHP'
+      MultiBar = mbStacked
+      XValues.DateTime = True
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+    end
+    object Series2: TBarSeries
+      Legend.Visible = False
+      Marks.Margins.Left = 0
+      Marks.Margins.Top = -1
+      Marks.Margins.Right = 0
+      Marks.Margins.Bottom = 0
+      Marks.Margins.Units = maPixels
+      Marks.Style = smsValue
+      Marks.Angle = 90
+      SeriesColor = xB2ED4800
+      ShowInLegend = False
+      Title = 'ConsoHC'
+      MultiBar = mbStacked
+      XValues.DateTime = True
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+    end
+  end
+end

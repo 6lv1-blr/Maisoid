@@ -1,0 +1,54 @@
+object FrameDebug3D: TFrameDebug3D
+  Size.Width = 567.000000000000000000
+  Size.Height = 605.000000000000000000
+  Size.PlatformDefault = False
+  object ToolBar1: TToolBar
+    Align = Bottom
+    Position.Y = 565.000000000000000000
+    Size.Width = 567.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object btnSwitchGraph: TButton
+      Align = Left
+      Size.Width = 47.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'arrowlefttoolbuttonbordered'
+      TabOrder = 2
+      Text = 'btnSwitchGraph'
+    end
+    object btnSwitchRight: TButton
+      Align = Right
+      Position.X = 520.000000000000000000
+      Size.Width = 47.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'arrowrighttoolbutton'
+      TabOrder = 0
+      Text = 'btnSwitchGraph'
+    end
+    object btnGoBackPlan: TButton
+      Align = Left
+      Position.X = 47.000000000000000000
+      Size.Width = 47.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'infotoolbutton'
+      TabOrder = 1
+      Text = 'btnSwitchGraph'
+    end
+  end
+  object MemoJsonEtat: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    TextSettings.WordWrap = True
+    Align = Client
+    Size.Width = 567.000000000000000000
+    Size.Height = 565.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 563.000000000000000000
+    Viewport.Height = 561.000000000000000000
+  end
+end
