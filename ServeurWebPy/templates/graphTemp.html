@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <link rel = "icon" type = "image/png" href = "/static/Favicon.ico" />
+        <title>Graph du :{{ d }}</title>
+        <link href="http://visjs.org/dist/vis.css" rel="stylesheet" type="text/css" />
+        <style media="screen" type="text/css">
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+                background-color: #F5F5F5;
+            }
+            hr {
+                border-top: 1px solid #808080 !important;
+                margin: 0 2% 0 2%;
+                border: 0;
+            }
+            .fleches {
+                width: 4em;
+                margin: 0 7% 0 7%;
+            }
+            h1 {
+                font-size: 4.5rem!important;
+                font-weight: 300!important;
+                margin: 0 0 0 0 !important;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+            }
+            .bouton:not(:disabled):not(.disabled) {
+                cursor: pointer;
+            }
+            .bouton:hover {
+                background-color: #4582EC;
+                color: white;
+            }
+            .bouton {
+                border-radius: 1.078em;
+                font-size: 0.875em;
+                color: #4582EC;
+                background-color: transparent;
+                background-image: none;
+                border-color: #4582EC;
+                border: 1px solid ;
+                padding: 0.5rem 1.1rem;
+                font-family: inherit;
+                line-height: inherit;
+                margin-left: 17%;
+                width:10%;
+            }
+            a{
+                text-decoration: none !important;
+            }
+            .cadre {
+                margin-left: 1em;
+                margin-right: 1em;
+            }
+            .graph {
+                margin-left: -10%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>{{ titre }}</h1><br>
+        
+        <ul style="font-size: 1.2em; margin-left: 5%">
+            <li>Temp. Moyenne : {{ tempMoy }} °C ({{ tempMin }}° / {{ tempMax }}°)</li>
+        </ul><br>
+        
+        <div class="" id="curve_chart"></div>
+        
+        <hr>
+        
+        <table width=100%>
+            <tr>
+                <th align=left><a href='/graphTemp/{{ prevDate }}'><img class="fleches" src='/static/prevDay.png'></a></th>
+                <th align=right><a href='/graphTemp/{{ nextDate }}'><img class="fleches" src='/static/nextDay.png'></a></th>
+            </tr>
+        </table>
+    </body>
+    
+    <script src="http://visjs.org/dist/vis.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Heure');
+        data.addColumn('number', 'Température');
+      data.addRows([
+         {%for point in points %}
+            [[parseInt({{point[0]}}),parseInt({{point[1]}}),0], {{point[2]}}],
+            {%endfor %}
+      ]);
+        var options = {
+          curveType: 'function',
+          height: 600,
+          backgroundColor : "#F5F5F5",
+          animation:{duration: 1000, easing: 'out'},
+          lineWidth: 5,
+          series: { 0 : {color : "#1565c0"}},
+          legend: {position: 'none'},
+          chartArea: {
+            top: 20,
+            bottom: 60,
+            left:60,
+            right:60}
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+</html>

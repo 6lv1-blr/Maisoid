@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	     <style media="screen" type="text/css">
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+                background-color: #F5F5F5;
+            }
+            hr {
+                border-top: 1px solid #808080 !important;
+                margin: 0 2% 0 2%;
+                border: 0;
+            }
+            .fleches {
+                width: 4em;
+                margin: 0 7% 0 7%;
+            }
+            h1 {
+                font-size: 4.5rem!important;
+                font-weight: 300!important;
+                margin: 0 0 0 0 !important;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+            }
+            .bouton:not(:disabled):not(.disabled) {
+                cursor: pointer;
+            }
+            .bouton:hover {
+                background-color: #4582EC;
+                color: white;
+            }
+            .bouton {
+                border-radius: 1.078em;
+                font-size: 0.875em;
+                color: #4582EC;
+                background-color: transparent;
+                background-image: none;
+                border-color: #4582EC;
+                border: 1px solid ;
+                padding: 0.5rem 1.1rem;
+                font-family: inherit;
+                line-height: inherit;
+                margin-left: 17%;
+                width:10%;
+            }
+            a{
+                text-decoration: none !important;
+            }
+            .cadre {
+                margin-left: 1em;
+                margin-right: 1em;
+            }
+            .graph {
+                margin-left: -10%;
+            }
+        </style>
+  	<title>Belair</title>
+  	{{ js_resources|indent(4)|safe }}
+  	{{ css_resources|indent(4)|safe }}
+  	{{ plot_script|indent(4)|safe }}
+  </head>
+  <body>
+  	<h1>{{ titre }}</h1><br>
+    {{ plot_div|indent(4)|safe }}
+  	<table width=100%>
+        <tr>
+            <th align=left><a href='{{ prevDate }}'><img class="fleches" src='/static/prevDay.png'></a></th>
+            <th align=right><a href='{{ nextDate }}'><img class="fleches" src='/static/nextDay.png'></a></th>
+        </tr>
+    </table>
+  </body>
+</html>
